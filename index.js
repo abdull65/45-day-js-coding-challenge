@@ -256,5 +256,32 @@ switch (expression) {
 
 /*
 Javascript Functions
+JavaScript Functions: Reusable Code Blocks
+Functions are a fundamental concept in JavaScript that allow you to 
+encapsulate a block of code and reuse it whenever needed. 
+They make your code modular, organized, and easier to maintain.
+*/
+
+/*
 
 */
+
+/*
+Function Declaration:
+A function is declared using the function keyword, followed by a name, 
+a list of parameters enclosed in parentheses, and a code block enclosed in curly braces.
+*/
+function declareFunc(parameter1, parameter2) {
+  // note: we can have one or more parameters in a function
+  // statements to run
+  parameter1 + parameter2;
+}
+
+/*
+Function Call
+A function can be useful on when call on invoked
+we call a function by using the function's name follow by it parameter in any.
+A function can be call any many times as possible where necessary
+*/
+declareFunc(10, 20);
+declareFunc("hello ", "World");
