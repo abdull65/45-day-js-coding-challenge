@@ -285,3 +285,9 @@ A function can be call any many times as possible where necessary
 */
 declareFunc(10, 20);
 declareFunc("hello ", "World");
+
+/*
+Function Expression
+Functions can also be assigned to variables, known as function expressions.
+ */
+const expressFunction = function (parameter1, parameter2) {};
