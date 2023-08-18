@@ -185,7 +185,7 @@ value1 === value2 ? "that true" : "that false";
 let string1 = "Hello";
 let string2 = "World";
 const concatString = string1 + string2 + "!";
-
+console.log(concatString);
 /*
 CONDITIONAL STATEMENTS
 Conditional statements in JavaScript are used to make decisions in your code. 
@@ -197,7 +197,8 @@ If Statement:
 The if statement is the most basic type of conditional statement. 
 It allows you to execute a code block only if a certain condition is met.
 */
-if (condition) {
+let condition1, condition2;
+if (condition1) {
   return "something"; //can be true or false.
 }
 
@@ -217,6 +218,7 @@ Else-If Statement:
 The else if statement allows you to check multiple conditions in sequence
  and execute the corresponding code block of the first true condition.
 */
+
 if (condition1 <= condition2) {
   return; //something
 } else if (!condition2 == 5) {
@@ -238,6 +240,7 @@ Switch Statement:
 The switch statement allows you to execute different code blocks based on the value of an expression. 
 It's often used when you have multiple cases to consider.
  */
+let value3;
 switch (expression) {
   case value1:
     return; //something
