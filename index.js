@@ -232,7 +232,7 @@ Ternary Operator:
 The ternary operator is a concise way to write simple conditional statements. 
 It returns one of two values based on a given condition.
 */
-let condition = condition1 === 10 ? true : 0; //if conditio1 is strictly equal-to 10 return 2 else return 0
+let condition = condition1 === 10 ? true : 0; //if condition1 is strictly equal-to 10 return 2 else return 0
 
 /*
 Switch Statement:
@@ -253,3 +253,8 @@ switch (expression) {
   default:
     return; //anotherThing
 }
+
+/*
+Javascript Functions
+
+*/
