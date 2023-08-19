@@ -274,7 +274,8 @@ a list of parameters enclosed in parentheses, and a code block enclosed in curly
 function declareFunc(parameter1, parameter2) {
   // note: we can have one or more parameters in a function
   // statements to run
-  parameter1 + parameter2;
+  let sum = parameter1 + parameter2;
+  return sum;
 }
 
 /*
@@ -290,4 +291,53 @@ declareFunc("hello ", "World");
 Function Expression
 Functions can also be assigned to variables, known as function expressions.
  */
-const expressFunction = function (parameter1, parameter2) {};
+const expressFunction = function (parameter1, parameter2) {
+  return parameter1 * parameter2;
+};
+
+/*
+Return Statement:
+Functions can return a value using the return statement. 
+The returned value can be assigned to a variable or used directly.
+*/
+
+/*
+Arrow Function
+Arrow function is a short way of writing a function 
+mostly when it is a short function or a line of code
+*/
+let arrowFunc = (parameter1, parameter2) => parameter1 / parameter2;
+console.log(arrowFunc(10, 2));
+
+/*
+function parameters and argumenmt
+Parameters: 
+parameters are Variables defined in the function declaration to receive values.
+Arguments: 
+arguments are Values passed to the function when it's called in respect to parameters.
+ */
+function functionName(parameter1, parameter2) {
+  return parameter1 + parameter2;
+}
+functionName("argument1", "argument2");
+functionName(30, 10);
+
+/*
+default argument
+default argument are value passed inside a function with a parameter 
+which is used when no argument is used when calling a function
+*/
+function defaultParameter(name = "Guest") {
+  return "Hello" + " " + name;
+}
+defaultParameter("John"); // calling function with argument
+defaultParameter(); // calling a function without argument
+
+/*
+Anonymous Function
+this are function with parameter and arguments
+ */
+function anonymousFunc() {
+  return "i am anonymous";
+}
+anonymousFunc();
