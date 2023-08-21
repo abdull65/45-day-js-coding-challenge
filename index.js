@@ -395,3 +395,49 @@ var counter = createCounter();
 counter.increment();
 console.log(counter.getCount()); // Outputs 1
 console.log(counter.count); // Undefined (count is private)
+
+/*
+JavaScript global scope and local scope
+ */
+/*
+Global Scope:
+Global scope refers to the outermost level of your JavaScript code. 
+In the global scope, variables are declared outside of any function, 
+making them accessible from anywhere in your code. Here's an example:
+*/
+var globalVar = 10; // This variable is in the global scope.
+
+function myFunction() {
+  console.log(globalVar); // You can access globalVar inside a function.
+}
+
+console.log(globalVar); // You can also access globalVar outside of any function.
+
+/*
+Local Scope:
+Local scope, also known as function scope, refers to the innermost levels of your code, typically within functions. 
+Variables declared inside a function are only accessible within that function; they do not exist outside of it. Here's an example:
+*/
+function myFunction() {
+  var localVar = 5; // This variable is in the local scope of myFunction.
+  console.log(localVar);
+}
+
+myFunction(); // Outputs 5
+console.log(localVar); // Error: localVar is not defined (outside of myFunction)
+
+/*
+Block Scope
+Block scope elements or variable are visible within the nearest curly brace
+ */
+function myFunction() {
+  var localVar = 5; // This variable is in the local scope of myFunction.
+  if (localVar) {
+    let newVar = localVar;
+    console.log(newVar);
+  } else {
+    console.log(newVar);
+  }
+  console.log(localVar); // Error: newVar is not defined (inside of block)
+}
+// in this case newVar will on be accessible inside the if block statement
