@@ -341,3 +341,57 @@ function anonymousFunc() {
   return "i am anonymous";
 }
 anonymousFunc();
+
+/*
+FUNCTION SCOPES AND CLOSURES
+JavaScript function scope and closures are essential concepts to understand when working with JavaScript. 
+They are crucial for creating modular and maintainable code. Let's break down these concepts:
+ */
+/*
+FUNCTION SCOPES
+JavaScript has function-level scope, which means that variables declared 
+inside a function are only accessible within that function. Here's an example:
+*/
+function myFunction() {
+  var x = 10; // This variable x is only accessible inside myFunction.
+  console.log(x);
+}
+
+myFunction(); // Outputs 10
+console.log(x); // Error: x is not defined (outside of myFunction)
+
+/*
+FUNCTION CLOSURES
+Closures are a powerful and somewhat advanced concept in JavaScript. 
+They occur when a function "remembers" its lexical scope, even when 
+it's executed outside of that scope.Closures are often used to create private variables and functions.
+*/
+function outer() {
+  var x = 10;
+
+  function inner() {
+    console.log(x); // Inner function can still access the variable x from its outer function.
+  }
+
+  return inner;
+}
+
+var closureFn = outer();
+closureFn(); // Outputs 10
+
+function createCounter() {
+  var count = 0;
+  return {
+    increment: function () {
+      count++;
+    },
+    getCount: function () {
+      return count;
+    },
+  };
+}
+
+var counter = createCounter();
+counter.increment();
+console.log(counter.getCount()); // Outputs 1
+console.log(counter.count); // Undefined (count is private)
