@@ -476,8 +476,6 @@ console.log(myArray); // main array was not touched it was modified
 Array Methods:
 Arrays come with several built-in methods to perform common operations:
 forEach(): Executes a provided function once for each array element.
-map(): Creates a new array by applying a function to each element of an existing array.
-filter(): Creates a new array with all elements that pass a test.
 find(): Returns the first element in an array that satisfies a provided testing function.
 reduce(): Reduces an array to a single value by applying a function to each element.
 sort(): Sorts the elements of an array in place.
@@ -518,3 +516,45 @@ let spliceArr2 = concatArr.splice(1, 3, "20", false, "splicedElement");
 let newSplice = spliceArr2;
 console.log(newSplice);
 console.log(concatArr);
+
+// map(): Creates a new array by applying a function to each element of an existing array.
+//map(): iterate or loop over array and create another array after each iteration
+
+// how map() works
+// it can take more than 1 parameter
+let currentMap = [10, 20, 30, 40, 50, 5];
+let newMap = currentMap.map(function (element, index) {
+  // the index parameter is optional and is use to know the current index of the array when iterating
+  //code to execute
+  return element * 2 + index;
+});
+console.log(newMap);
+let numbersArr = [1, 2, 3, 4, 5, 6];
+console.log(numbersArr);
+let mapArr = numbersArr.map((num) => {
+  console.log(numbersArr);
+  return num * num;
+});
+console.log(mapArr);
+
+// filter(): Creates a new array with all elements that pass a test.
+let getOdd = numbersArr.filter((odd) => {
+  return odd % 2 === 1;
+});
+console.log(getOdd);
+let getEven = numbersArr.filter((even) => {
+  return even % 2 === 0;
+});
+console.log(getEven);
+let randomNum = [1, 2, 3, 4, 2, 4, 5, 7, 8];
+let getUnique = randomNum.filter((unique, index, self) => {
+  return self.indexOf(unique) === index;
+});
+console.log(getUnique);
+let newArr = [];
+for (let i = 0; i < randomNum.length; i++) {
+  if (newArr.indexOf(randomNum[i]) === -1) {
+    newArr.push(randomNum[i]);
+  }
+}
+console.log(newArr);
