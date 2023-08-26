@@ -558,3 +558,28 @@ for (let i = 0; i < randomNum.length; i++) {
   }
 }
 console.log(newArr);
+
+//some(): the some method is ued to check for a specifid condition in an array if met it return true or false
+// let newSomeArray;
+// const someArr = newSomeArray.some(function (element, index, array, thisArg) {});
+
+// Parameters:
+// - callback: Function to test for each element.
+//   - element: The current element being processed in the array.
+//   - index (optional): The index of the current element being processed in the array.
+//   - array (optional): The array `some()` was called upon.
+// - thisArg (optional): Object to use as `this` when executing the callback.
+
+// Example 1:
+let Somenumbers = [10, 20, 30, 40, 50];
+let result = Somenumbers.some(function (element) {
+  return element > 25;
+});
+
+console.log(result); // Output: true (because 30 and 40 are greater than 25)
+
+// Example 2 (with arrow function):
+let fruits = ["apple", "banana", "cherry"];
+let hasBanana = fruits.some((fruit) => fruit === "banna");
+
+console.log(hasBanana); // Output: false (because 'banna' is not in the array)

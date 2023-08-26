@@ -13,17 +13,6 @@ const taskNameInput = document.querySelector("#taskName");
 const taskPriorityInput = document.querySelector("#taskPriority");
 const taskUl = document.querySelector(".taskUl");
 
-// const filterArr = function () {
-//   const initialLength = taskList.length;
-//   const checkArr = taskList.filter((task, index, self) => {
-//     return self.findIndex((t) => t.name === task.name) === index;
-//   });
-//   taskList = checkArr;
-//   if (initialLength !== taskList.length) {
-//     console.log("task already exist");
-//   }
-// };
-
 const renderTasks = () => {
   // Clear the task list
   taskUl.innerHTML = "";
