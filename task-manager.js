@@ -13,6 +13,17 @@ const taskNameInput = document.querySelector("#taskName");
 const taskPriorityInput = document.querySelector("#taskPriority");
 const taskUl = document.querySelector(".taskUl");
 
+// const filterArr = function () {
+//   const initialLength = taskList.length;
+//   const checkArr = taskList.filter((task, index, self) => {
+//     return self.findIndex((t) => t.name === task.name) === index;
+//   });
+//   taskList = checkArr;
+//   if (initialLength !== taskList.length) {
+//     console.log("task already exist");
+//   }
+// };
+
 const renderTasks = () => {
   // Clear the task list
   taskUl.innerHTML = "";
@@ -33,7 +44,14 @@ const addTask = function (name, priority) {
     console.log("Please enter a valid task name and priority.");
     return;
   }
-
+  const doesTaskNameExist = taskList.some((task) => task.name === name);
+  const doesTaskPriorityExist = taskList.some(
+    (task) => task.priority === priority
+  );
+  if (doesTaskNameExist && doesTaskPriorityExist) {
+    console.log(`Task "${name}" already exists.`);
+    return;
+  }
   let newTask = {
     name: name,
     priority: priority,
@@ -50,6 +68,7 @@ const addTask = function (name, priority) {
   if (!added) {
     taskList.push(newTask);
   }
+
   console.log(`Task "${name}" with priority ${priority} has been added.`);
   renderTasks();
 };
@@ -86,6 +105,7 @@ const changePriority = function (name, newPriority) {
     if (!added) {
       taskList.push(updateTask);
     }
+
     console.log(
       `Priority of task "${name}" has been updated to ${newPriority}.`
     );
