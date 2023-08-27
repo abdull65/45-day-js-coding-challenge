@@ -7,27 +7,43 @@
     <link rel="stylesheet" href="task-manager.css" type="text/css" />
   </head>
   <body>
-    <div id="todoListContainer">
-      <header>TASK MANAGER</header>
+    <div id="taskListContainer">
+      <header><h1>TASK MANAGER</h1></header>
       <div id="menuContainer">
-        <button class="menubtn" id="addTask">Add Task</button
-          ><button class="menubtn" id="editPriority">Edit Priority</button
-        ><button class="menubtn" id="delTask">Delete Task</button      </div>
+        <button class="menubtn" id="addTask">Add Task</button>
+        <button class="menubtn" id="editPriority">Edit Priority</button>
+        <button class="menubtn" id="delTask">Delete Task</button>
+      </div>
       <div class="mainContent">
-        <input
-          type="text"
-          name="taskName"
-          id="taskName"
-          placeholder="Enter Task Name"
-        />
-        <input
-          type="text"
-          name="taskPriority"
-          id="taskPriority"
-          placeholder="Enter Task Priority"
-        />
-
-        <ul class="taskUl"></ul>
+        <div class="inputFieldBox">
+          <input
+            type="text"
+            name="taskName"
+            id="taskName"
+            class="inputField"
+            placeholder="Enter Task Name"
+          />
+          <input
+            type="text"
+            name="taskPriority"
+            id="taskPriority"
+            class="inputField"
+            placeholder="Enter Task Priority"
+          />
+        </div>
+        <div class="taskBox">
+          <table id="table">
+            <thead id="tableHead">
+              <tr id="tRowHead">
+                <th>TASK TITLE</th>
+                <th>TASK PRIORITY</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              
+            </tbody>
+        </div>
+        <p class="responseBox"></p>
       </div>
     </div>
     <script src="task-manager.js" type="text/javascript"></script>

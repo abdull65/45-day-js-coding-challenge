@@ -11,26 +11,35 @@ const delTaskBtn = document.getElementById("delTask");
 const editPriorityBtn = document.getElementById("editPriority");
 const taskNameInput = document.querySelector("#taskName");
 const taskPriorityInput = document.querySelector("#taskPriority");
-const taskUl = document.querySelector(".taskUl");
-
+const taskTable = document.querySelector("#tableBody");
+const responseBoxEl = document.querySelector(".responseBox");
+responseBoxEl.style.display = "none";
+const responseFunc = function (message) {
+  responseBoxEl.textContent = message;
+  setTimeout(() => {
+    responseBoxEl.style.display = "none";
+  }, 2000);
+  responseBoxEl.style.display = "flex";
+};
 const renderTasks = () => {
   // Clear the task list
-  taskUl.innerHTML = "";
+  taskTable.innerHTML = "";
   taskList.forEach((task) => {
-    const taskLi = document.createElement("li");
-    const taskNameBox = document.createElement("span");
-    const taskPriorityBox = document.createElement("span");
+    const taskRow = document.createElement("tr");
+    const taskNameBox = document.createElement("td");
+    const taskPriorityBox = document.createElement("td");
     taskNameBox.textContent = task.name;
     taskPriorityBox.textContent = task.priority;
-    taskLi.append(taskNameBox);
-    taskLi.append(taskPriorityBox);
-    taskUl.appendChild(taskLi);
+    taskRow.append(taskNameBox);
+    taskRow.append(taskPriorityBox);
+    taskTable.appendChild(taskRow);
   });
 };
 
 const addTask = function (name, priority) {
   if (!name || isNaN(priority)) {
     console.log("Please enter a valid task name and priority.");
+    responseFunc("Please enter a valid task name and priority.");
     return;
   }
   const doesTaskNameExist = taskList.some((task) => task.name === name);
@@ -39,6 +48,7 @@ const addTask = function (name, priority) {
   );
   if (doesTaskNameExist && doesTaskPriorityExist) {
     console.log(`Task "${name}" already exists.`);
+    responseFunc(`Task "${name}" already exists.`);
     return;
   }
   let newTask = {
@@ -48,7 +58,7 @@ const addTask = function (name, priority) {
 
   let added = false;
   for (let i = 0; i < taskList.length; i++) {
-    if (taskList[i].priority >= priority) {
+    if (taskList[i].priority <= priority) {
       taskList.splice(i, 0, newTask);
       added = true;
       break;
@@ -59,6 +69,7 @@ const addTask = function (name, priority) {
   }
 
   console.log(`Task "${name}" with priority ${priority} has been added.`);
+  responseFunc(`Task "${name}" with priority ${priority} has been added.`);
   renderTasks();
 };
 
@@ -67,9 +78,11 @@ const removeTask = function (name) {
   if (findIndex !== -1) {
     taskList.splice(findIndex, 1);
     console.log(`Task "${name}" has been removed.`);
+    responseFunc(`Task "${name}" has been removed.`);
     renderTasks();
   } else {
     console.log(`Task "${name}" not found.`);
+    responseFunc(`Task "${name}" not found.`);
   }
 };
 
@@ -85,7 +98,7 @@ const changePriority = function (name, newPriority) {
 
     let added = false;
     for (let i = 0; i < taskList.length; i++) {
-      if (taskList[i].priority >= newPriority) {
+      if (taskList[i].priority <= newPriority) {
         taskList.splice(i, 0, updateTask);
         added = true;
         break;
@@ -98,9 +111,13 @@ const changePriority = function (name, newPriority) {
     console.log(
       `Priority of task "${name}" has been updated to ${newPriority}.`
     );
+    responseFunc(
+      `Priority of task "${name}" has been updated to ${newPriority}.`
+    );
     renderTasks();
   } else {
     console.log(`Task "${name}" not found. Cannot change priority.`);
+    responseFunc(`Task "${name}" not found. Cannot change priority.`);
   }
 };
 
