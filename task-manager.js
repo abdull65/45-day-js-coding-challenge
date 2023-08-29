@@ -35,10 +35,9 @@ const renderTasks = () => {
     taskTable.appendChild(taskRow);
   });
 };
-
+// efunction to add new task
 const addTask = function (name, priority) {
   if (!name || isNaN(priority)) {
-    console.log("Please enter a valid task name and priority.");
     responseFunc("Please enter a valid task name and priority.");
     return;
   }
@@ -47,7 +46,6 @@ const addTask = function (name, priority) {
     (task) => task.priority === priority
   );
   if (doesTaskNameExist && doesTaskPriorityExist) {
-    console.log(`Task "${name}" already exists.`);
     responseFunc(`Task "${name}" already exists.`);
     return;
   }
@@ -68,7 +66,6 @@ const addTask = function (name, priority) {
     taskList.push(newTask);
   }
 
-  console.log(`Task "${name}" with priority ${priority} has been added.`);
   responseFunc(`Task "${name}" with priority ${priority} has been added.`);
   renderTasks();
 };
@@ -77,11 +74,9 @@ const removeTask = function (name) {
   let findIndex = taskList.findIndex((task) => task.name === name);
   if (findIndex !== -1) {
     taskList.splice(findIndex, 1);
-    console.log(`Task "${name}" has been removed.`);
     responseFunc(`Task "${name}" has been removed.`);
     renderTasks();
   } else {
-    console.log(`Task "${name}" not found.`);
     responseFunc(`Task "${name}" not found.`);
   }
 };
@@ -107,16 +102,11 @@ const changePriority = function (name, newPriority) {
     if (!added) {
       taskList.push(updateTask);
     }
-
-    console.log(
-      `Priority of task "${name}" has been updated to ${newPriority}.`
-    );
     responseFunc(
       `Priority of task "${name}" has been updated to ${newPriority}.`
     );
     renderTasks();
   } else {
-    console.log(`Task "${name}" not found. Cannot change priority.`);
     responseFunc(`Task "${name}" not found. Cannot change priority.`);
   }
 };
