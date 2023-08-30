@@ -15,6 +15,7 @@
         <button class="menubtn" id="delTask">Delete Task</button>
       </div>
       <div class="mainContent">
+        <div class="">
         <div class="inputFieldBox">
           <input
             type="text"
@@ -30,6 +31,71 @@
             class="inputField"
             placeholder="Enter Task Priority"
           />
+        </div>
+        <div class="manualBox">
+          <div class="mobileBar">
+            <button class="mobileBarBtn" id="openMenu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" 
+              viewBox="0 0 24 24" fill="none" stroke="#333" stroke-width="2" 
+              stroke-linecap="round" stroke-linejoin="round" 
+              class="feather feather-chevron-down">
+                <polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+             
+             <button class="mobileBarBtn" id="closeMenu">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" 
+              height="24" viewBox="0 0 24 24" fill="none" 
+              stroke="#333" stroke-width="2" stroke-linecap="round" 
+              stroke-linejoin="round" class="feather 
+              feather-chevron-up"><polyline points="18 15 12 9 6 15">
+              </polyline></svg> 
+            </button>
+          </div>
+          <h2 class="manualTitle">
+            Task Priority Manager - User's Guide
+          </h2>
+          <div class="stepsBox">
+            <p>Adding a Task:</p>
+            <ol>
+              <li>
+                Enter the task name.
+              </li>
+                <li>
+                  Enter the task priority (a number).
+                </li>
+                <li>
+                Click "Add Task" to add and sort it by priority.</li>
+            </ol>
+            <p>Editing a Task:</p>
+            <ol>
+              <li>
+                Enter the task name to edit.
+              </li>
+                <li>
+                  Enter the new priority.
+                </li>
+              <li>
+                  Click "Edit Priority" to update and re-sort.
+              </li>
+            </ol>
+            <p>Deleting Task Priority:</p>
+            <ol>
+              <li>Enter the task name to delete.
+              </li>
+              <li>
+              Click "Delete Task" to remove it.
+              </li>
+            </ol>
+            <p>Note:</p>
+            <ul>
+              <li>Valid task names and unique names are essential.
+              </li>
+              <li>
+                The app sorts tasks by priority automatically.
+              </li>
+            </ul>
+          </div>
+        </div>
         </div>
         <div class="taskBox">
           <table id="table">

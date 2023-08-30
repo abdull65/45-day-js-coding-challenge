@@ -112,8 +112,8 @@ const changePriority = function (name, newPriority) {
 };
 
 addTaskBtn.addEventListener("click", () => {
-  const taskName = taskNameInput.value;
-  const taskPriority = taskPriorityInput.value;
+  const taskName = taskNameInput.value.trim();
+  const taskPriority = taskPriorityInput.value.trim();
   const parsePriority = parseInt(taskPriority);
   addTask(taskName, parsePriority);
   taskNameInput.value = "";
@@ -121,17 +121,30 @@ addTaskBtn.addEventListener("click", () => {
 });
 
 delTaskBtn.addEventListener("click", () => {
-  const taskToRemove = taskNameInput.value;
+  const taskToRemove = taskNameInput.value.trim();
   removeTask(taskToRemove);
   taskNameInput.value = "";
   taskPriorityInput.value = "";
 });
 
 editPriorityBtn.addEventListener("click", () => {
-  const taskToEdit = taskNameInput.value;
-  const newPriority = taskPriorityInput.value;
+  const taskToEdit = taskNameInput.value.trim();
+  const newPriority = taskPriorityInput.value.trim();
   const parsePriority = parseInt(newPriority);
   changePriority(taskToEdit, parsePriority);
   taskNameInput.value = "";
   taskPriorityInput.value = "";
+});
+
+//////////////////////////////////////////////////
+const openManualBtnEl = document.querySelector("#openMenu");
+const closeManualBtnEl = document.querySelector("#closeMenu");
+const manualContentEl = document.querySelector(".stepsBox");
+openManualBtnEl.addEventListener("click", () => {
+  manualContentEl.classList.toggle("openManual");
+  openManualBtnEl.classList.toggle("openManual");
+});
+closeManualBtnEl.addEventListener("click", () => {
+  manualContentEl.classList.toggle("openManual");
+  openManualBtnEl.classList.toggle("openManual");
 });

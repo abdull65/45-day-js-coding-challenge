@@ -509,7 +509,7 @@ console.log("sliceArr: " + slicedArr);
 // splice(): Changes the content of an array by removing, replacing, or adding elements.
 // let remove some elements
 let spliceArr = concatArr.splice(2, 3); // this will create another array starting from the first argument and select according to the second argument
-console.log(spliceArr);
+console.log("spliceArr:" + spliceArr);
 
 // let replace some element
 let spliceArr2 = concatArr.splice(1, 3, "20", false, "splicedElement");
@@ -535,7 +535,7 @@ let mapArr = numbersArr.map((num) => {
   console.log(numbersArr);
   return num * num;
 });
-console.log(mapArr);
+console.log("mapArr:" + mapArr);
 
 // filter(): Creates a new array with all elements that pass a test.
 let getOdd = numbersArr.filter((odd) => {
@@ -576,10 +576,10 @@ let result = Somenumbers.some(function (element) {
   return element > 25;
 });
 
-console.log(result); // Output: true (because 30 and 40 are greater than 25)
+console.log("someArr:" + result); // Output: true (because 30 and 40 are greater than 25)
 
 // Example 2 (with arrow function):
 let fruits = ["apple", "banana", "cherry"];
 let hasBanana = fruits.some((fruit) => fruit === "banna");
 
-console.log(hasBanana); // Output: false (because 'banna' is not in the array)
+console.log("someArr:" + hasBanana); // Output: false (because 'banna' is not in the array)

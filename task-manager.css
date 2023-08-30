@@ -12,7 +12,7 @@
 
   body {
     background-color: #B0E0E6;
-
+    color: #333;
     font-size: 1.6rem;
   }
 
@@ -21,7 +21,6 @@
     flex-direction: column;
     height: 100vh;
     padding: 1rem 2rem;
-    /* background-color: black; */
     font-family: "Roboto", 'Segoe UI', sans-serif;
   }
 
@@ -30,7 +29,6 @@
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    margin-bottom: 2rem;
   }
 
   header h1 {
@@ -40,25 +38,15 @@
     letter-spacing: 1.8px;
     background-color: #fff;
     color: #333;
-    padding: 1rem;
+    padding: .5rem 1rem;
     position: relative;
-  }
-
-  header h1::after {
-    content: "";
-    height: 4px;
-    width: 110px;
-    position: absolute;
-    top: 53px;
-    left: 1rem;
-    background-color: #1F74D0;
   }
 
   #menuContainer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 1rem;
-    margin: 2rem 0;
+    margin: 2rem 0 0;
 
   }
 
@@ -197,33 +185,75 @@
     justify-content: center;
     position: absolute;
     top: 45%;
-    left: 50%;
+    left: 55%;
     transform: translateX(-50%);
     transition: all 500ms;
-    animation: fadeIn 500ms ease-in-out;
   }
 
-  @keyframes fadeIn {
-    0% {
-      opacity: 0;
-    }
+  .manualBox {
+    margin-top: 2rem;
+    line-height: 1.5;
+    background-color: #f2f2f2ff;
+    padding: .5rem 1rem 0;
+    position: relative;
 
-    100% {
-      opacity: 1;
-    }
   }
 
+  .manualTitle {
+    display: flex;
+    align-items: center;
+    font-size: 1.8rem;
+    height: 4rem;
+  }
+
+  .stepsBox {
+    max-height: 0;
+    display: none;
+    border-top: 1px solid #d5d5d5;
+    margin-right: -1rem;
+    margin-left: -1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+    transition: All 3000ms;
+  }
+
+  .stepsBox p {
+    font-weight: bold;
+    margin-top: .8rem;
+  }
+
+  .stepsBox li {
+    list-style-position: inside;
+  }
+
+  .mobileBarBtn {
+    background-color: none;
+    border: none;
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    cursor: pointer;
+  }
+
+  .openManual.stepsBox {
+    max-height: 100%;
+    display: block;
+  }
+
+  #openMenu {
+    z-index: 1;
+  }
+
+  .openManual#openMenu {
+    z-index: 0;
+  }
 
 
   /***********  MEDIA QUARIES / RESPONSIVENESS ************* */
   @media screen and (max-width: 50em) {
     header h1 {
       font-size: 3rem;
-    }
-
-    header h1::after {
-      width: 80px;
-      top: 46px;
     }
 
     .mainContent {
@@ -244,11 +274,6 @@
 
     header h1 {
       font-size: 2.2rem;
-    }
-
-    header h1::after {
-      width: 62px;
-      top: 40px;
     }
 
     .mainContent {
@@ -276,5 +301,9 @@
     .responseBox {
       font-size: 1.2rem;
       width: 100%;
+    }
+
+    .manualTitle {
+      font-size: 1.4rem;
     }
   }

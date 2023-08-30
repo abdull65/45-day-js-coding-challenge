@@ -38,5 +38,11 @@ document.querySelector("#nextBtn").addEventListener("click", () => {
 document.querySelector("#prevBtn").addEventListener("click", () => {
   prevSlide();
 });
-
+const autoSLideFunc = function () {
+  setInterval(() => {
+    showCurrentImage();
+    nextSlide();
+  }, 4000);
+};
+autoSLideFunc();
 showCurrentImage();
