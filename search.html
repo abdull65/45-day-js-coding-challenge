@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SEARCH FUNCTION || filter array method</title>
+    <link rel="stylesheet" href="search.css" type="text/css" />
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>SEARCH FUNCTION</h1>
+        <div class="categoriesLinkBox">
+          <button class="catBtn">All</button>
+          <button class="catBtn">Smartphones</button>
+          <button class="catBtn">Cars</button>
+          <button class="catBtn">Houses</button>
+          <button class="catBtn">Food</button>
+          <button class="catBtn">Fruits</button>
+          <button class="catBtn">Vegetables</button>
+          <button class="catBtn">Sweets</button>
+        </div>
+      </header>
+      <div class="mainContent">
+        <div class="searchContainer">
+          <input type="search" name="search" id="searchInput" />
+          <button id="searchBtn">
+            <span class="searchText"> Search </span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#333"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-search"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="searchResult"></div>
+    </div>
+    <script src="search.js" type="text/javascript"></script>
+  </body>
+</html>
