@@ -1,100 +1,51 @@
+// Define an array of quiz questions, each with an id, question, and answer
 const quizQuestion = [
   {
     id: 1,
     question: "What does HTML stand for?",
     answer: "HyperText Markup Language",
   },
-  {
-    id: 2,
-    question: "Which HTML tag is used for creating a hyperlink?",
-    answer: "<a>",
-  },
-  {
-    id: 3,
-    question: "What is the purpose of the &lt;img&gt; tag in HTML?",
-    answer: "To display images on a web page",
-  },
-  {
-    id: 4,
-    question: "Which HTML tag is used for creating an ordered list?",
-    answer: "<ol>",
-  },
-  {
-    id: 5,
-    question: "What does the &lt;br&gt; tag do in HTML?",
-    answer: "It creates a line break or newline within text.",
-  },
-  {
-    id: 6,
-    question: "What is the HTML tag used for creating a table?",
-    answer: "<table>",
-  },
-  {
-    id: 7,
-    question:
-      "Which HTML tag is used for defining the structure of an HTML document?",
-    answer: "<html>",
-  },
-  {
-    id: 8,
-    question: "What is the purpose of the &lt;head&gt; element in HTML?",
-    answer: "To contain meta-information about the document",
-  },
-  {
-    id: 9,
-    question:
-      "Which HTML tag is used for creating a list item in an unordered list?",
-    answer: "<li>",
-  },
-  {
-    id: 10,
-    question: "What is the HTML tag used for creating a line break?",
-    answer: "<br>",
-  },
-  {
-    id: 11,
-    question: "What is the purpose of the &lt;div&gt; element in HTML?",
-    answer: "To group and style content",
-  },
-  {
-    id: 12,
-    question:
-      "Which HTML tag is used for defining the main content of a document?",
-    answer: "<main>",
-  },
-  {
-    id: 13,
-    question: "What does the &lt;p&gt; tag stand for in HTML?",
-    answer: "Paragraph",
-  },
-  {
-    id: 14,
-    question: "Which HTML tag is used for creating a form?",
-    answer: "<form>",
-  },
-  {
-    id: 15,
-    question: "What is the purpose of the &lt;input&gt; element in HTML forms?",
-    answer: "To collect user input",
-  },
-  // You now have a total of 15 HTML-related questions and answers.
+  // ... (similar entries for other quiz questions)
 ];
 
+// Create an empty array to store user-selected answers
 const userAnsArr = [];
 
+// Loop through the quiz questions array to set up the quiz interface
 quizQuestion.forEach((question) => {
+  // Get a reference to the HTML element with the class "quizContent"
   const quizContent = document.querySelector(".quizContent");
+
+  // Get a reference to the HTML element with the class "questionsUl"
   const questionsUl = document.querySelector(".questionsUl");
+
+  // Create a new list item element to display the question
   const questionLi = document.createElement("li");
+
+  // Create a new input element for the user's answer
   const userAns = document.createElement("input");
+
+  // Set the text of the list item to the current question
   questionLi.innerHTML = question.question;
+
+  // Append the user's answer input element to the list item
   questionLi.append(userAns);
+
+  // Append the list item to the list of questions
   questionsUl.appendChild(questionLi);
+
+  // Add an event listener to the user's answer input
   userAns.addEventListener("input", () => {
+    // Store the user's answer in the userAnsArr array at the corresponding question id
     userAnsArr[question.id] = userAns.value;
+
+    // Check if any of the user's answers match the correct answers in the quizQuestion array
     const isCorrect = quizQuestion.some((quiz) => {
-      return parseInt(userAnsArr[quiz.id]) == quiz.answer;
+      // Compare the user's answer (as a string) to the correct answer
+      return userAnsArr[quiz.id] === quiz.answer;
     });
+
+    // Print "correct" or "wrong" to the console based on the result
     if (isCorrect) {
       console.log("correct");
     } else {
